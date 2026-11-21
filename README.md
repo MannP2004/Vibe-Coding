@@ -79,7 +79,7 @@ Add your actual screenshots to a folder named `screenshots` in the project.
 
 ### Main Dashboard
 
-![StudySpace Main Dashboard](screenshots/dashboardmainandprogress.png)
+![StudySpace Main Dashboard](screenshots/dashbordmainandprogress.png )
 
 ### Calendar View
 
