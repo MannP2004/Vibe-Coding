@@ -1,4 +1,3 @@
-
 const taskForm = document.getElementById("taskForm");
 const taskList = document.getElementById("taskList");
 
@@ -264,7 +263,6 @@ function startEditing(taskId) {
 
     taskTitle.focus();
 }
-
 // Cancel editing.
 function cancelEditing() {
     editingTaskId = null;
@@ -461,8 +459,6 @@ function showSelectedDateTasks() {
     });
 
 }
-
-
 // Generate the monthly calendar
 function renderCalendar() {
 
@@ -496,7 +492,6 @@ function renderCalendar() {
         calendarDays.appendChild(emptyDay);
     }
 
-
     // Generate calendar dates
     for (let day = 1; day <= daysInMonth; day++) {
 
@@ -518,24 +513,20 @@ function renderCalendar() {
 
         dayButton.appendChild(number);
 
-
         // Highlight today's date
         if (dateString === localToday) {
             dayButton.classList.add("today");
         }
-
 
         // Highlight selected date
         if (dateString === selectedCalendarDate) {
             dayButton.classList.add("selected");
         }
 
-
         // Find tasks due on this date
         const tasksOnDate = tasks.filter(
             task => task.date === dateString
         );
-
 
         // Show task indicator
         if (tasksOnDate.length > 0) {
@@ -547,7 +538,6 @@ function renderCalendar() {
             dayButton.appendChild(indicator);
         }
 
-
         // Highlight dates with overdue tasks
         const hasOverdueTasks = tasksOnDate.some(
             task => !task.completed && task.date < localToday
@@ -556,7 +546,6 @@ function renderCalendar() {
         if (hasOverdueTasks) {
             dayButton.classList.add("overdue-day");
         }
-
 
         // Select a date
         dayButton.addEventListener("click", () => {
@@ -572,7 +561,6 @@ function renderCalendar() {
     }
 
     showSelectedDateTasks();
-
 }
 
 
@@ -615,3 +603,42 @@ renderTasks = function() {
 // Initial calendar display
 renderCalendar();
 
+// =====================================
+// STUDYSPACE V4 - THEME SWITCHER
+// =====================================
+
+const themeToggle = document.getElementById("themeToggle");
+const savedTheme = localStorage.getItem("studySpaceTheme");
+
+// Restore the user's saved theme.
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+}
+
+function updateThemeButton() {
+    const isDarkMode = document.body.classList.contains("dark-mode");
+    const themeIcon = themeToggle.querySelector(".theme-icon");
+    const themeLabel = themeToggle.querySelector(".theme-label");
+
+    themeIcon.textContent = isDarkMode ? "☀" : "☾";
+    themeLabel.textContent = isDarkMode ? "Light mode" : "Dark mode";
+
+    themeToggle.setAttribute(
+        "aria-label",
+        isDarkMode ? "Switch to light mode" : "Switch to dark mode"
+    );
+}
+
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    const selectedTheme = document.body.classList.contains("dark-mode")
+        ? "dark"
+        : "light";
+
+    localStorage.setItem("studySpaceTheme", selectedTheme);
+    updateThemeButton();
+});
+
+// Set the correct button label when the page loads.
+updateThemeButton();
