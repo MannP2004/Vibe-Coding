@@ -79,7 +79,7 @@ Add your actual screenshots to a folder named `screenshots` in the project.
 
 ### Main Dashboard
 
-![StudySpace Main Dashboard](screenshots/dashbordmain and progress.png)
+![StudySpace Main Dashboard](screenshots/dashboardmainandprogress.png)
 
 ### Calendar View
 
@@ -132,7 +132,7 @@ Vibe-Coding/
 ├── .gitignore
 │
 └── screenshots/
-    ├── dashbordmain and progress.png
+    ├── dashbordmainandprogress.png
     ├── dashbordtasks.png
     ├── calendar.png
     └── calendar2.png
