@@ -132,8 +132,10 @@ Vibe-Coding/
 ├── .gitignore
 │
 └── screenshots/
-    ├── dashboard.png
-    └── calendar.png
+    ├── dashbordmain and progress.png
+    ├── dashbordtasks.png
+    ├── calendar.png
+    └── calendar2.png
 ```
 
 ## Author
